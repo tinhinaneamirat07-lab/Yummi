@@ -1,0 +1,67 @@
+.footer {
+  background: #1f1811;
+  color: #d9cbb8;
+  padding: 90px 8% 40px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* BRAND */
+.footer-brand h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #bfae98;
+}
+
+/* LINKS */
+.footer h4 {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color: #e8dccb;
+}
+
+.footer a {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 13.5px;
+  text-decoration: none;
+  color: #bfae98;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  margin-top: 70px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 12.5px;
+  color: #9c8b74;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}

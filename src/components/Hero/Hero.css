@@ -1,0 +1,172 @@
+.hero-wrapper {
+  min-height: 100vh;
+  padding: 160px 8% 120px;
+  background: linear-gradient(180deg, #fdfbf8 0%, #f6f1ea 100%);
+  display: flex;
+  align-items: center;
+}
+
+/* ================= LAYOUT ================= */
+
+.hero-content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* ================= TEXT ================= */
+
+.hero-text .eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #9c8366;
+}
+
+.hero-text h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #2f2419;
+  margin: 20px 0;
+}
+
+.hero-text .accent {
+  color: #b79b78;
+}
+
+.subtitle {
+  max-width: 420px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #6a5846;
+  margin-bottom: 36px;
+}
+
+/* SEARCH */
+
+.search-box input {
+  width: 100%;
+  max-width: 420px;
+  padding: 14px 24px;
+  border-radius: 40px;
+  border: 1px solid #d8c8b4;
+  background: rgba(255, 255, 255, 0.6);
+  outline: none;
+  font-size: 14px;
+}
+
+/* ================= CARDS ================= */
+
+.hero-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 230px;
+  gap: 28px;
+}
+
+/* BASE CARD */
+
+.card {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e3d5c2, #f3ede5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+/* DEFAULT SIZE */
+.hero-cards .card:not(.tall):not(.wide) {
+  height: 260px;
+}
+
+.card.tall {
+  grid-row: span 2;
+  height: 380px;
+}
+
+.card.wide {
+  grid-column: span 2;
+  height: 260px;
+}
+
+/* IMAGE */
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* OVERLAY */
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55),
+    transparent
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 26px;
+  color: #fff;
+}
+
+.card-overlay h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.card-overlay p {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* ================= HOVER ================= */
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
+}
+
+.card:hover img {
+  transform: scale(1.06);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .hero-text h1 {
+    font-size: 42px;
+  }
+
+  .hero-cards {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 220px;
+  }
+
+  .card.tall,
+  .card.wide {
+    grid-column: auto;
+    grid-row: auto;
+    height: 240px;
+  }
+}
+
+/* ✅ FIXED NAME (matches JSX now) */
+.card.card-baking {
+  padding-top: 30px;
+}

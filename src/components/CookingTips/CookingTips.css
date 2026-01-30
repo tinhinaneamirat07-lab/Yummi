@@ -1,0 +1,98 @@
+.philosophy {
+  position: relative;
+  padding: 140px 8%;
+  background: #2f2419;
+  color: #f5efe6;
+  overflow: hidden;
+}
+
+.philosophy-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(255,255,255,0.06),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* CONTENT */
+.philosophy-inner {
+  position: relative;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.philosophy-eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #c7b299;
+}
+
+/* TITLE */
+.philosophy h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 46px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 24px 0 80px;
+}
+
+.philosophy h2 span {
+  color: #b79b78;
+}
+
+/* GRID */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+
+.philosophy-item {
+  padding-left: 26px;
+  border-left: 1px solid rgba(255,255,255,0.2);
+}
+
+.philo-number {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #b79b78;
+}
+
+.philosophy-item h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 16px 0;
+}
+
+.philosophy-item p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #e0d6c8;
+}
+
+/* ANIMATION */
+.philosophy {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.philosophy.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .philosophy h2 {
+    font-size: 36px;
+  }
+}

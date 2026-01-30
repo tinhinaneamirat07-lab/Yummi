@@ -1,0 +1,65 @@
+.ritual {
+  padding: 140px 8%;
+  background: linear-gradient(
+    180deg,
+    #f6f1ea 0%,
+    #ede3d5 100%
+  );
+  text-align: center;
+}
+
+.ritual-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #9c8366;
+}
+
+/* TITLE */
+.ritual h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 24px 0 26px;
+  color: #2f2419;
+}
+
+.ritual h2 em {
+  font-style: normal;
+  color: #b79b78;
+}
+
+/* TEXT */
+.ritual p {
+  max-width: 520px;
+  margin: auto;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #6a5846;
+}
+
+/* BUTTON */
+.ritual-btn {
+  display: inline-block;
+  margin-top: 50px;
+  padding: 14px 36px;
+  border-radius: 40px;
+  background: #b79b78;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  transition: all 0.35s ease;
+}
+
+.ritual-btn:hover {
+  background: #3f2f1f;
+  transform: translateY(-3px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .ritual h2 {
+    font-size: 36px;
+  }
+}

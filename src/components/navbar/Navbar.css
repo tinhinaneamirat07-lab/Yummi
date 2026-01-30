@@ -1,0 +1,84 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 22px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(246, 241, 234, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* LOGO */
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #3f2f1f;
+  letter-spacing: 1px;
+}
+
+/* LINKS */
+.links {
+  display: flex;
+  gap: 36px;
+}
+
+.links a {
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  color: #5a4632;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 1px;
+  background: #b79b78;
+  transition: width 0.3s ease;
+}
+
+.links a:hover::after,
+.links a.active::after {
+  width: 100%;
+}
+
+/* CTA */
+.cta {
+  padding: 10px 24px;
+  border-radius: 40px;
+  border: 1px solid #b79b78;
+  color: #5a4632;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  transition: all 0.35s ease;
+}
+
+.cta:hover {
+  background: #b79b78;
+  color: #fff;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  font: inherit;
+  color: #5a4632;
+  cursor: pointer;
+  position: relative;
+}
