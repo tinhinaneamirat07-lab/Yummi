@@ -7,6 +7,7 @@ export default function Hero() {
       <div className="hero-content">
 
         <div className="hero-text">
+          <div className="the-text">
           <span className="eyebrow">YUMMI EXPERIENCE</span>
 
           <h1>
@@ -26,8 +27,9 @@ export default function Hero() {
               placeholder="Search a recipe, ingredient, or mood..."
             />
           </div>
+          </div>
         </div>
-
+        <div className="the-cards">
         <div className="hero-cards">
           <div className="card tall">
             <img src="/Pics/cake.jpg" alt="Sweet" />
@@ -45,13 +47,16 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="card wide card-baking">
+                <div className="baking-card">
+          <div className="card wide ">
             <img src="/Pics/Baking.jpg" alt="Baking" />
             <div className="card-overlay">
               <h3>Baking</h3>
               <p>Warm & Crafted</p>
             </div>
           </div>
+          </div>
+        </div>
         </div>
 
       </div>

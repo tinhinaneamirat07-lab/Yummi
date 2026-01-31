@@ -6,8 +6,6 @@
   align-items: center;
 }
 
-/* ================= LAYOUT ================= */
-
 .hero-content {
   width: 100%;
   display: grid;
@@ -15,8 +13,6 @@
   gap: 80px;
   align-items: center;
 }
-
-/* ================= TEXT ================= */
 
 .hero-text .eyebrow {
   font-size: 12px;
@@ -45,8 +41,6 @@
   margin-bottom: 36px;
 }
 
-/* SEARCH */
-
 .search-box input {
   width: 100%;
   max-width: 420px;
@@ -58,16 +52,12 @@
   font-size: 14px;
 }
 
-/* ================= CARDS ================= */
-
 .hero-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: 230px;
   gap: 28px;
 }
-
-/* BASE CARD */
 
 .card {
   position: relative;
@@ -78,9 +68,8 @@
   will-change: transform;
 }
 
-/* DEFAULT SIZE */
 .hero-cards .card:not(.tall):not(.wide) {
-  height: 260px;
+  height: 280px;
 }
 
 .card.tall {
@@ -93,16 +82,12 @@
   height: 260px;
 }
 
-/* IMAGE */
-
 .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
 }
-
-/* OVERLAY */
 
 .card-overlay {
   position: absolute;
@@ -130,8 +115,6 @@
   opacity: 0.9;
 }
 
-/* ================= HOVER ================= */
-
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
@@ -140,8 +123,6 @@
 .card:hover img {
   transform: scale(1.06);
 }
-
-/* ================= RESPONSIVE ================= */
 
 @media (max-width: 900px) {
   .hero-content {
@@ -155,7 +136,7 @@
 
   .hero-cards {
     grid-template-columns: 1fr;
-    grid-auto-rows: 220px;
+    grid-auto-rows: 240px;
   }
 
   .card.tall,
@@ -166,7 +147,21 @@
   }
 }
 
-/* ✅ FIXED NAME (matches JSX now) */
 .card.card-baking {
   padding-top: 30px;
+  height: auto;
+}
+
+.hero-cards {
+  gap: 20px;
+}
+.the-text{
+  margin-bottom: 280px;
+}
+.baking-card {
+  margin-top: 60px;
+  
+}
+.the-cards{
+  margin-top: -200px;
 }

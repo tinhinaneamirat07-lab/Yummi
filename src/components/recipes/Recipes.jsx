@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Recipes.css";
 
 const API = "http://localhost:5000/api/saved-recipes";
@@ -145,9 +145,7 @@ export default function Recipes() {
               </div>
 
               <button
-                className={`habit-save ${
-                  saved.includes(r._id) ? "saved" : ""
-                }`}
+                className={`habit-save ${saved.includes(r._id) ? "saved" : ""}`}
                 onClick={() => toggleSave(r)}
               >
                 {saved.includes(r._id) ? "♥ Saved" : "♡ Save"}
@@ -156,6 +154,13 @@ export default function Recipes() {
           </div>
         ))}
       </div>
+
+      <button
+        onClick={() => window.location.href = "/explore"}
+        className="explore-btn"
+      >
+        Explore More Recipes
+      </button>
     </section>
   );
 }

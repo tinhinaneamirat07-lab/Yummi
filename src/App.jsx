@@ -8,18 +8,10 @@ import Footer from "./components/footer/Footer";
 import Planner from "./components/planner/Planner";
 import Recipes from "./components/recipes/Recipes";
 
-
-
-
-
-
 // pages
 import Auth from "./pages/Auth/AuthModal";
 import Profile from "./pages/Profile/Profile";
-
-
-
-
+import Explore from "./pages/Explore/Explore";
 
 
 import "./App.css";
@@ -36,11 +28,11 @@ function App() {
           path="/"
           element={
             <>
-              <Hero/>
-              <CookingTips/>
+              <Hero />
+              <CookingTips />
               <Recipes />
               <CallToAction />
-              <Footer/>
+              <Footer />
             </>
           }
         />
@@ -49,11 +41,11 @@ function App() {
         <Route path="/login" element={<Auth />} />
         <Route path="/register" element={<Auth />} />
 
-       
-
         {/* OTHERS */}
-        <Route path="/planner" element={<Planner/>} />
+        <Route path="/planner" element={<Planner />} />
         <Route path="/profile" element={<Profile />} />
+
+        <Route path="/explore" element={<Explore />} />
       </Routes>
     </BrowserRouter>
   );

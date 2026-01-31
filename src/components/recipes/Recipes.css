@@ -139,3 +139,37 @@
     font-size: 36px;
   }
 }
+/* =========================
+   EXPLORE BUTTON
+========================= */
+
+.explore-btn {
+  display: block;
+  margin: 40px auto 0;
+  padding: 12px 30px;
+  background: transparent;
+  border: 2px solid #9c8366;
+  color: #9c8366;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.explore-btn:hover {
+  background: #9c8366;
+  color: #fff;
+  transform: translateY(-4px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 700px) {
+  .explore-btn {
+    font-size: 14px;
+    padding: 10px 25px;
+  }
+}
