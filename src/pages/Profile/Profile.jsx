@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 
-const SAVE_API = "http://localhost:5000/api/saved-recipes";
-
 export default function Profile() {
   const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
   const [photo, setPhoto] = useState(null);
-  const [saved, setSaved] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const token = localStorage.getItem("token");
 
@@ -24,35 +23,32 @@ export default function Profile() {
     if (storedPhoto) {
       setPhoto(storedPhoto);
     }
-
-    fetchSaved();
   }, []);
-
-  const fetchSaved = async () => {
-    if (!token) return;
-
-    try {
-      const res = await fetch(SAVE_API, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const data = await res.json();
-      setSaved(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
+    // Validate file type
+    if (!file.type.startsWith("image/")) {
+      setError("Please upload a valid image file.");
+      return;
+    }
+
+    setLoading(true);  // Start loading state
+
     const reader = new FileReader();
     reader.onloadend = () => {
       setPhoto(reader.result);
-      localStorage.setItem("profilePhoto", reader.result);
+      localStorage.setItem("profilePhoto", reader.result);  // Save photo to localStorage
+      setLoading(false);  // Stop loading state
+      setError(null);  // Clear any previous error
     };
+    reader.onerror = () => {
+      setLoading(false);
+      setError("An error occurred while uploading the photo.");
+    };
+
     reader.readAsDataURL(file);
   };
 
@@ -60,7 +56,7 @@ export default function Profile() {
     return (
       <main className="profile-page">
         <p className="profile-empty">
-          Please login to access your personal kitchen.
+          Please log in to access your personal kitchen.
         </p>
       </main>
     );
@@ -79,7 +75,7 @@ export default function Profile() {
         </div>
 
         <label className="upload-photo">
-          Change photo
+          {loading ? "Uploading..." : "Change photo"}
           <input
             type="file"
             accept="image/*"
@@ -88,43 +84,10 @@ export default function Profile() {
           />
         </label>
 
+        {error && <p className="error-message">{error}</p>}
+
         <h1>{user.name}</h1>
         <p className="profile-email">{user.email}</p>
-      </section>
-
-      {/* SAVED RECIPES */}
-      <section className="profile-saved">
-        <h2>Your saved rituals</h2>
-
-        {saved.length === 0 ? (
-          <p className="profile-empty">
-            No saved recipes yet.
-            <br />
-            Start saving moments you love 🤎
-          </p>
-        ) : (
-          <div className="saved-grid">
-            {saved.map((r) => (
-              <div
-                key={r._id}
-                className="saved-card"
-                onClick={() =>
-                  navigate(`/planner?recipe=${r.recipeId}`)
-                }
-              >
-                <div
-                  className="saved-img"
-                  style={{
-                    backgroundImage: r.image
-                      ? `url(${r.image})`
-                      : "none",
-                  }}
-                />
-                <span>{r.title}</span>
-              </div>
-            ))}
-          </div>
-        )}
       </section>
     </main>
   );

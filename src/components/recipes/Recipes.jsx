@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Recipes.css";
 
-const API = "http://localhost:5000/api/saved-recipes";
+const API = "http://localhost:5000/api/saved-recipes"; 
 
 export default function Recipes() {
-  const [saved, setSaved] = useState([]);
-  const token = localStorage.getItem("token");
-
+  const [saved, setSaved] = useState([]);  
+  const token = localStorage.getItem("token"); 
   const recipes = [
     {
       _id: "1",
@@ -64,32 +63,33 @@ export default function Recipes() {
     },
   ];
 
-  // 🔁 get saved recipes of user
+  
   useEffect(() => {
-    if (!token) return;
+    if (!token) return;  
 
     fetch(API, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,  
       },
     })
       .then((res) => res.json())
       .then((data) => {
-        const ids = data.map((r) => r.recipeId);
-        setSaved(ids);
+        const ids = data.map((r) => r.recipeId); 
+        setSaved(ids); 
       })
-      .catch(console.error);
-  }, []);
+      .catch(console.error);  
+  }, [token]); 
 
-  // ❤️ save / unsave
+  
   const toggleSave = async (recipe) => {
     if (!token) {
       alert("Please login first");
       return;
     }
 
-    // UNSAVE
+    // UNSAVE the recipe
     if (saved.includes(recipe._id)) {
+      
       const res = await fetch(API, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -97,23 +97,26 @@ export default function Recipes() {
       const found = data.find((r) => r.recipeId === recipe._id);
 
       if (found) {
+        // DELETE saved recipe from the backend
         await fetch(`${API}/${found._id}`, {
           method: "DELETE",
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`, 
           },
         });
       }
 
+     
       setSaved((prev) => prev.filter((id) => id !== recipe._id));
     }
-    // SAVE
+    // SAVE the recipe
     else {
+      // Send POST request to save the recipe
       await fetch(API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,  
         },
         body: JSON.stringify({
           recipeId: recipe._id,
@@ -122,6 +125,7 @@ export default function Recipes() {
         }),
       });
 
+     
       setSaved((prev) => [...prev, recipe._id]);
     }
   };
@@ -136,7 +140,7 @@ export default function Recipes() {
       <div className="habit-grid">
         {recipes.map((r) => (
           <div key={r._id} className="habit-card">
-            <img src={r.img} alt="" />
+            <img src={r.img} alt={r.title} />
 
             <div className="habit-overlay">
               <div className="habit-text">
@@ -146,7 +150,7 @@ export default function Recipes() {
 
               <button
                 className={`habit-save ${saved.includes(r._id) ? "saved" : ""}`}
-                onClick={() => toggleSave(r)}
+                onClick={() => toggleSave(r)}  
               >
                 {saved.includes(r._id) ? "♥ Saved" : "♡ Save"}
               </button>

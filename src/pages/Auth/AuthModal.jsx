@@ -16,7 +16,7 @@ export default function Auth() {
   const handleSubmit = async () => {
     if (loading) return;
 
-    // simple validation
+    // Simple validation
     if (!email || !password || (isRegister && !name)) {
       alert("Please fill all fields");
       return;
@@ -24,12 +24,13 @@ export default function Auth() {
 
     const url = isRegister ? `${API}/register` : `${API}/login`;
     const body = isRegister
-      ? { name, email, password }
-      : { email, password };
+      ? { name, email, password }  // For registration
+      : { email, password };  // For login
 
     try {
       setLoading(true);
 
+      // Making the API request
       const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -39,10 +40,11 @@ export default function Auth() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
 
-      // save auth data
+      // Save token and user data in localStorage
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
+      // Navigate to the profile page (or any protected page)
       navigate("/profile");
     } catch (err) {
       alert(err.message);
