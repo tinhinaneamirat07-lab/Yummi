@@ -5,6 +5,7 @@
 .recipes-habit {
   padding: 130px 8%;
   background: linear-gradient(180deg, #fdfbf8, #f6f1ea);
+  overflow: hidden;
 }
 
 /* HEADER */
@@ -27,31 +28,47 @@
 }
 
 /* =========================
-   GRID
+   CAROUSEL
 ========================= */
 
-.habit-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+.habit-carousel {
+  position: relative;
+  overflow: hidden;
 }
 
+.habit-viewport {
+  position: relative;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
 /* =========================
    CARD
 ========================= */
 
 .habit-card {
-  position: relative;
+  position: absolute;
+  width: 320px;
   height: 360px; /* ⬅️ smaller */
   border-radius: 26px;
   overflow: hidden;
   background: linear-gradient(135deg, #e3d5c2, #f3ede5);
   cursor: pointer;
-  transition: transform 0.5s ease;
-}
-
-.habit-card:hover {
-  transform: translateY(-6px);
+  transform:
+    translateX(calc(var(--offset) * 220px))
+    scale(calc(1 - (var(--abs) * 0.12)))
+    rotateY(calc(var(--offset) * -10deg));
+  opacity: calc(1 - (var(--abs) * 0.2));
+  filter: brightness(calc(1 - (var(--abs) * 0.08)));
+  transition:
+    transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.4s ease,
+    filter 0.4s ease;
+  z-index: calc(10 - var(--abs));
 }
 
 /* IMAGE */
@@ -121,18 +138,28 @@
 ========================= */
 
 @media (max-width: 1100px) {
-  .habit-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .habit-viewport {
+    height: 340px;
+  }
+
+  .habit-card {
+    width: 300px;
+    height: 340px;
+    transform:
+      translateX(calc(var(--offset) * 190px))
+      scale(calc(1 - (var(--abs) * 0.12)))
+      rotateY(calc(var(--offset) * -9deg));
   }
 }
 
 @media (max-width: 700px) {
-  .habit-grid {
-    grid-template-columns: 1fr;
-  }
-
   .habit-card {
+    width: 260px;
     height: 320px;
+    transform:
+      translateX(calc(var(--offset) * 150px))
+      scale(calc(1 - (var(--abs) * 0.12)))
+      rotateY(calc(var(--offset) * -7deg));
   }
 
   .recipes-head h2 {

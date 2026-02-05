@@ -3,6 +3,14 @@
   line-height: 1.5;
   font-weight: 400;
 
+  --deep-brown: #4e3b31;
+  --golden-beige: #f0e2d1;
+  --soft-ivory: #fff8f1;
+  --burnished-gold: #b89b6a;
+  --soft-charcoal: #333333;
+  --muted-olive-green: #3b4f30;
+  --warm-amber: #e1aa6e;
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;

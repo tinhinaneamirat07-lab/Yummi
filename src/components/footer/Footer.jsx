@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer-inner">
 
         <div className="footer-brand">
-          <h2>Yummi</h2>
+          <h2>Nuvia</h2>
           <p>Your smart recipe manager.</p>
         </div>
 

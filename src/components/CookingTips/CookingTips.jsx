@@ -40,7 +40,7 @@ export default function CookingTips() {
       <div className="philosophy-bg" />
 
       <div className="philosophy-inner">
-        <span className="philosophy-eyebrow">The Yummi Philosophy</span>
+        <span className="philosophy-eyebrow">The Nuvia Philosophy</span>
 
         <h2>
           Cooking is not a task.

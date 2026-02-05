@@ -1,8 +1,8 @@
 .philosophy {
   position: relative;
   padding: 140px 8%;
-  background: #2f2419;
-  color: #f5efe6;
+  background: var(--deep-brown);
+  color: var(--soft-ivory);
   overflow: hidden;
 }
 
@@ -11,7 +11,7 @@
   inset: 0;
   background: radial-gradient(
     circle at top,
-    rgba(255,255,255,0.06),
+    rgba(255, 255, 255, 0.08),
     transparent 60%
   );
   pointer-events: none;
@@ -27,7 +27,7 @@
 .philosophy-eyebrow {
   font-size: 12px;
   letter-spacing: 2px;
-  color: #c7b299;
+  color: var(--burnished-gold);
 }
 
 /* TITLE */
@@ -40,7 +40,7 @@
 }
 
 .philosophy h2 span {
-  color: #b79b78;
+  color: var(--warm-amber);
 }
 
 /* GRID */
@@ -52,13 +52,13 @@
 
 .philosophy-item {
   padding-left: 26px;
-  border-left: 1px solid rgba(255,255,255,0.2);
+  border-left: 1px solid rgba(255, 248, 241, 0.25);
 }
 
 .philo-number {
   font-size: 14px;
   letter-spacing: 2px;
-  color: #b79b78;
+  color: var(--burnished-gold);
 }
 
 .philosophy-item h3 {
@@ -71,7 +71,7 @@
 .philosophy-item p {
   font-size: 14.5px;
   line-height: 1.7;
-  color: #e0d6c8;
+  color: rgba(255, 248, 241, 0.8);
 }
 
 /* ANIMATION */

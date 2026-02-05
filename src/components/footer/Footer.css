@@ -1,6 +1,6 @@
 .footer {
-  background: #1f1811;
-  color: #d9cbb8;
+  background: var(--deep-brown);
+  color: rgba(255, 248, 241, 0.8);
   padding: 90px 8% 40px;
 }
 
@@ -17,14 +17,14 @@
   font-family: "Playfair Display", serif;
   font-size: 28px;
   font-weight: 500;
-  color: #fff;
+  color: var(--soft-ivory);
   margin-bottom: 12px;
 }
 
 .footer-brand p {
   font-size: 14px;
   line-height: 1.6;
-  color: #bfae98;
+  color: rgba(255, 248, 241, 0.65);
 }
 
 /* LINKS */
@@ -32,7 +32,7 @@
   font-size: 14px;
   letter-spacing: 1px;
   margin-bottom: 20px;
-  color: #e8dccb;
+  color: var(--burnished-gold);
 }
 
 .footer a {
@@ -40,22 +40,22 @@
   margin-bottom: 12px;
   font-size: 13.5px;
   text-decoration: none;
-  color: #bfae98;
+  color: rgba(255, 248, 241, 0.65);
   transition: color 0.3s ease;
 }
 
 .footer a:hover {
-  color: #fff;
+  color: var(--soft-ivory);
 }
 
 /* BOTTOM */
 .footer-bottom {
   margin-top: 70px;
   padding-top: 30px;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 248, 241, 0.12);
   text-align: center;
   font-size: 12.5px;
-  color: #9c8b74;
+  color: rgba(255, 248, 241, 0.5);
 }
 
 /* RESPONSIVE */

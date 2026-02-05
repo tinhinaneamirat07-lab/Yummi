@@ -5,6 +5,8 @@ const API = "http://localhost:5000/api/saved-recipes";
 
 export default function Recipes() {
   const [saved, setSaved] = useState([]);  
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const token = localStorage.getItem("token"); 
   const recipes = [
     {
@@ -79,6 +81,23 @@ export default function Recipes() {
       })
       .catch(console.error);  
   }, [token]); 
+  
+  const total = recipes.length;
+  const wrapIndex = (index) => (index + total) % total;
+  const getOffset = (index) => {
+    let diff = index - activeIndex;
+    if (diff > total / 2) diff -= total;
+    if (diff < -total / 2) diff += total;
+    return diff;
+  };
+
+  useEffect(() => {
+    if (isPaused) return;
+    const id = setInterval(() => {
+      setActiveIndex((i) => (i + 1) % total);
+    }, 4000);
+    return () => clearInterval(id);
+  }, [isPaused, total]);
 
   
   const toggleSave = async (recipe) => {
@@ -137,26 +156,45 @@ export default function Recipes() {
         <h2>Choose a moment</h2>
       </div>
 
-      <div className="habit-grid">
-        {recipes.map((r) => (
-          <div key={r._id} className="habit-card">
-            <img src={r.img} alt={r.title} />
-
-            <div className="habit-overlay">
-              <div className="habit-text">
-                <h3>{r.title}</h3>
-                <p>{r.mood}</p>
-              </div>
-
-              <button
-                className={`habit-save ${saved.includes(r._id) ? "saved" : ""}`}
-                onClick={() => toggleSave(r)}  
+      <div className="habit-carousel">
+        <div className="habit-viewport">
+          {recipes.map((r, index) => {
+            const offset = getOffset(index);
+            return (
+              <div
+                key={r._id}
+                className="habit-card"
+                style={{
+                  "--offset": offset,
+                  "--abs": Math.abs(offset),
+                }}
+                onClick={() => setActiveIndex(index)}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
               >
-                {saved.includes(r._id) ? "♥ Saved" : "♡ Save"}
-              </button>
-            </div>
-          </div>
-        ))}
+                <img src={r.img} alt={r.title} />
+
+                <div className="habit-overlay">
+                  <div className="habit-text">
+                    <h3>{r.title}</h3>
+                    <p>{r.mood}</p>
+                  </div>
+
+                  <button
+                    className={`habit-save ${saved.includes(r._id) ? "saved" : ""}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleSave(r);
+                    }}  
+                  >
+                    {saved.includes(r._id) ? "♥ Saved" : "♡ Save"}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
       </div>
 
       <button
@@ -168,3 +206,6 @@ export default function Recipes() {
     </section>
   );
 }
+
+
+

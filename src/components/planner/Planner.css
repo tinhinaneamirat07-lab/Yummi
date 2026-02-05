@@ -3,25 +3,25 @@
 ========================= */
 
 :root {
-  --cream-0: #fbf6f1;
-  --cream-1: #f4ede6;
-  --cream-2: #efe6dc;
-  --cocoa-0: #3b2b1f;
-  --cocoa-1: #6b4f38;
-  --cocoa-2: #8a6a52;
-  --gold-0: #b88a5a;
-  --card-0: #f7f1ea;
-  --shadow-0: 0 18px 40px rgba(41, 28, 19, 0.14);
-  --shadow-1: 0 10px 30px rgba(41, 28, 19, 0.12);
-  --shadow-2: 0 6px 18px rgba(41, 28, 19, 0.1);
+  --planner-ivory: var(--soft-ivory);
+  --planner-beige: var(--golden-beige);
+  --planner-brown: var(--deep-brown);
+  --planner-charcoal: var(--soft-charcoal);
+  --planner-gold: var(--burnished-gold);
+  --planner-olive: var(--muted-olive-green);
+  --planner-amber: var(--warm-amber);
+  --planner-card: rgba(255, 248, 241, 0.9);
+  --shadow-0: 0 18px 40px rgba(78, 59, 49, 0.18);
+  --shadow-1: 0 10px 30px rgba(78, 59, 49, 0.14);
+  --shadow-2: 0 6px 18px rgba(78, 59, 49, 0.12);
 }
 
 .planner-week {
   padding: 120px 7% 80px;
   background:
-    radial-gradient(1200px 420px at 50% -200px, #ffffff 0%, transparent 60%),
-    linear-gradient(180deg, var(--cream-0) 0%, var(--cream-1) 45%, var(--cream-2) 100%);
-  color: var(--cocoa-0);
+    radial-gradient(1200px 420px at 50% -200px, rgba(255, 248, 241, 0.9) 0%, transparent 60%),
+    linear-gradient(180deg, var(--planner-ivory) 0%, var(--planner-beige) 60%, rgba(240, 226, 209, 0.85) 100%);
+  color: var(--planner-brown);
   min-height: 100vh;
 }
 
@@ -50,7 +50,7 @@
   font-family: "Playfair Display", serif;
   font-size: 16px;
   letter-spacing: 1.5px;
-  color: var(--cocoa-2);
+  color: var(--planner-gold);
   margin-bottom: 6px;
 }
 
@@ -63,7 +63,7 @@
 
 .planner-subtitle {
   font-size: 15px;
-  color: #6a5846;
+  color: var(--planner-charcoal);
 }
 
 /* =========================
@@ -80,9 +80,9 @@
 }
 
 .ribbon-pill {
-  border: 1px solid rgba(79, 55, 37, 0.2);
-  background: rgba(255, 255, 255, 0.7);
-  color: var(--cocoa-1);
+  border: 1px solid rgba(78, 59, 49, 0.2);
+  background: rgba(255, 248, 241, 0.7);
+  color: var(--planner-charcoal);
   padding: 8px 18px;
   border-radius: 999px;
   font-size: 12px;
@@ -93,8 +93,8 @@
 
 .ribbon-pill.active,
 .ribbon-pill:hover {
-  background: linear-gradient(180deg, #b68a5a, #a57849);
-  color: #fff3e6;
+  background: linear-gradient(180deg, var(--planner-gold), var(--planner-amber));
+  color: var(--planner-ivory);
   border-color: transparent;
   box-shadow: var(--shadow-1);
 }
@@ -115,7 +115,7 @@
 ========================= */
 
 .planner-column {
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 248, 241, 0.7);
   border-radius: 26px;
   padding: 22px;
   backdrop-filter: blur(10px);
@@ -126,7 +126,7 @@
 .column-title {
   font-size: 14px;
   letter-spacing: 1px;
-  color: var(--cocoa-2);
+  color: var(--planner-gold);
   margin-bottom: 14px;
   text-transform: uppercase;
 }
@@ -141,7 +141,7 @@
   align-items: center;
   margin-bottom: 8px;
   font-size: 13px;
-  color: var(--cocoa-1);
+  color: var(--planner-charcoal);
 }
 
 .day-cards {
@@ -151,29 +151,29 @@
 
 .day-empty {
   font-size: 12px;
-  color: #8d7564;
+  color: rgba(78, 59, 49, 0.65);
   margin: 6px 0 10px;
 }
 
 .add-to-day {
   border: none;
-  background: #efe6dc;
+  background: var(--planner-beige);
   border-radius: 999px;
   padding: 6px 12px;
   font-size: 11px;
-  color: #6a5846;
+  color: var(--planner-charcoal);
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .add-to-day:hover {
-  background: #b79b78;
-  color: #fff;
+  background: var(--planner-gold);
+  color: var(--planner-ivory);
 }
 
 .mini-card {
-  border: 1px solid rgba(79, 55, 37, 0.1);
-  background: #f3ede5;
+  border: 1px solid rgba(78, 59, 49, 0.1);
+  background: rgba(240, 226, 209, 0.65);
   border-radius: 16px;
   padding: 10px;
   display: grid;
@@ -189,14 +189,14 @@
   height: 44px;
   border-radius: 12px;
   object-fit: cover;
-  background: #d8c8b4;
+  background: rgba(184, 155, 106, 0.35);
 }
 
 .mini-card.selected,
 .mini-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-2);
-  background: #ede3d5;
+  background: rgba(240, 226, 209, 0.85);
 }
 
 .mini-meta {
@@ -206,12 +206,12 @@
 
 .recipe-title {
   font-size: 13px;
-  color: #3f2f1f;
+  color: var(--planner-brown);
 }
 
 .recipe-desc {
   font-size: 11px;
-  color: #7a624f;
+  color: rgba(78, 59, 49, 0.65);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -222,7 +222,7 @@
 ========================= */
 
 .planner-feature {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 248, 241, 0.8);
   border-radius: 30px;
   padding: 22px;
   backdrop-filter: blur(10px);
@@ -247,8 +247,8 @@
 .feature-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 100%);
-  color: #fff3e6;
+  background: linear-gradient(180deg, rgba(78, 59, 49, 0) 40%, rgba(78, 59, 49, 0.62) 100%);
+  color: var(--planner-ivory);
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -260,7 +260,7 @@
   font-size: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #f1dcc2;
+  color: var(--planner-amber);
 }
 
 .feature-overlay h2 {
@@ -273,7 +273,7 @@
 .feature-overlay p {
   font-size: 13px;
   margin: 0;
-  color: #f7efe7;
+  color: rgba(255, 248, 241, 0.9);
 }
 
 .feature-body {
@@ -288,7 +288,7 @@
 }
 
 .feature-stats div {
-  background: #f3ede5;
+  background: rgba(240, 226, 209, 0.7);
   border-radius: 14px;
   padding: 12px;
   text-align: center;
@@ -298,13 +298,13 @@
 .feature-stats span {
   display: block;
   font-size: 11px;
-  color: #8a6a52;
+  color: rgba(78, 59, 49, 0.6);
   margin-bottom: 4px;
 }
 
 .feature-stats strong {
   font-size: 14px;
-  color: #3f2f1f;
+  color: var(--planner-brown);
 }
 
 .feature-columns {
@@ -315,35 +315,35 @@
 }
 
 .feature-card {
-  background: #fdfaf6;
+  background: rgba(255, 248, 241, 0.9);
   border-radius: 18px;
   padding: 18px;
-  border: 1px solid rgba(79, 55, 37, 0.08);
+  border: 1px solid rgba(78, 59, 49, 0.08);
 }
 
 .feature-card h3 {
   font-family: "Playfair Display", serif;
   font-size: 16px;
   margin-bottom: 10px;
-  color: #4a3626;
+  color: var(--planner-brown);
 }
 
 .feature-card ul {
   margin: 0;
   padding-left: 18px;
-  color: #6a5846;
+  color: var(--planner-charcoal);
   font-size: 13px;
   line-height: 1.6;
 }
 
 .steps-text {
   font-size: 13px;
-  color: #6a5846;
+  color: var(--planner-charcoal);
   line-height: 1.6;
 }
 
 .muted {
-  color: #8d7564;
+  color: rgba(78, 59, 49, 0.6);
   font-size: 12px;
 }
 
@@ -363,23 +363,23 @@
 }
 
 .feature-actions button:nth-child(1) {
-  background: #b79b78;
-  color: #fff;
+  background: var(--planner-gold);
+  color: var(--planner-ivory);
 }
 
 .feature-actions button:nth-child(2) {
-  background: #3f2f1f;
-  color: #fff;
+  background: var(--planner-brown);
+  color: var(--planner-ivory);
 }
 
 .feature-actions button:nth-child(3) {
-  background: #d9534f;
-  color: #fff;
+  background: var(--planner-olive);
+  color: var(--planner-ivory);
 }
 
 .feature-actions button:nth-child(4) {
-  background: #5bc0de;
-  color: #fff;
+  background: var(--planner-amber);
+  color: var(--planner-brown);
 }
 
 .feature-actions button:hover {
@@ -390,7 +390,7 @@
 .feature-empty {
   text-align: center;
   padding: 60px 20px;
-  color: #6a5846;
+  color: var(--planner-charcoal);
 }
 
 /* =========================
@@ -399,7 +399,7 @@
 
 .luxe-add {
   margin-top: 60px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 248, 241, 0.85);
   border-radius: 30px;
   padding: 50px;
   max-width: 760px;
@@ -415,7 +415,7 @@
 }
 
 .luxe-add span {
-  color: #b79b78;
+  color: var(--planner-gold);
 }
 
 .luxe-add input,
@@ -425,20 +425,20 @@
   padding: 14px 18px;
   border-radius: 18px;
   border: none;
-  background: #f3ede5;
+  background: rgba(240, 226, 209, 0.8);
   font-size: 14px;
-  color: #2f2419;
+  color: var(--planner-brown);
 }
 
 .luxe-add input::placeholder,
 .luxe-add textarea::placeholder {
-  color: #9c8b74;
+  color: rgba(78, 59, 49, 0.55);
 }
 
 .luxe-add button {
   margin-top: 6px;
-  background: #b79b78;
-  color: #fff;
+  background: var(--planner-gold);
+  color: var(--planner-ivory);
   border: none;
   padding: 14px 34px;
   border-radius: 40px;
@@ -448,7 +448,7 @@
 }
 
 .luxe-add button:hover {
-  background: #3f2f1f;
+  background: var(--planner-brown);
 }
 
 /* =========================

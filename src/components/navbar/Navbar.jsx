@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-      <h1 className="logo">Yummi</h1>
+      <h1 className="logo">Nuvia</h1>
 
       <div className="links">
         <Link to="/" className={location.pathname === "/" ? "active" : ""}>
